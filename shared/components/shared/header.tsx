@@ -8,7 +8,7 @@ import Link from "next/link";
 import { SearchInput } from "./search-input";
 import { CartButton } from "./cart-button";
 import toast from "react-hot-toast";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useSession } from "next-auth/react";
 import { AuthModal, ProfileButton } from "./index";
 
@@ -23,13 +23,28 @@ export const Header: React.FC<Props> = ({
   hasCart = true,
   className,
 }) => {
-  const { data: session } = useSession();
-  const searchParams = useSearchParams();
+  const router = useRouter();
   const [openAuthModal, setOpenAuthModal] = React.useState<boolean>(false);
+  const searchParams = useSearchParams();
 
   React.useEffect(() => {
+    let toastMessage = "";
+
     if (searchParams.has("paid")) {
-      toast.success("The order has been successfully paid.");
+      toastMessage = "The order has been successfully paid.";
+    }
+
+    if (searchParams.has("verified")) {
+      toastMessage = "The order has been successfully paid.";
+    }
+
+    if (toastMessage) {
+      setTimeout(() => {
+        router.replace("/");
+        toast.success(toastMessage, {
+          duration: 3000,
+        });
+      }, 1000);
     }
   });
 

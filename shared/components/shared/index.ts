@@ -25,6 +25,8 @@ export { CheckoutSidebar } from "./checkout-sidebar";
 export { OrderConfirmationTemplate } from "./email-template";
 export { ProfileButton } from "./profile-button";
 export { AuthModal } from "./modals/auth-modal";
+export { InfoBlock } from "./info-block";
+export { ProfileForm } from "./profile-form";
 
 export * from "./modals";
 export * from "./checkout";

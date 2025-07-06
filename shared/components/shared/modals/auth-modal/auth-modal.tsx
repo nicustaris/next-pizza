@@ -1,10 +1,17 @@
+"use client";
+
 import React from "react";
 
-import { Dialog, DialogContent } from "@/shared/components/ui/dialog";
+import {
+  Dialog,
+  DialogContent,
+  DialogTitle,
+} from "@/shared/components/ui/dialog";
 import { Button } from "@/shared/components/ui";
 import { signIn } from "next-auth/react";
-
 import LoginForm from "./forms/login-form";
+import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
+import { RegisterForm } from "./forms/register-form";
 
 interface Props {
   open: boolean;
@@ -25,10 +32,14 @@ export const AuthModal: React.FC<Props> = ({ open, onClose }) => {
   return (
     <Dialog open={open} onOpenChange={handleClose}>
       <DialogContent className="w-[450px] bg-white p-10">
+        <VisuallyHidden>
+          <DialogTitle className="hidden"></DialogTitle>
+        </VisuallyHidden>
+
         {type === "login" ? (
           <LoginForm onClose={handleClose} />
         ) : (
-          <h1>REGISTER</h1>
+          <RegisterForm onClose={handleClose} />
         )}
 
         <hr />
@@ -60,7 +71,7 @@ export const AuthModal: React.FC<Props> = ({ open, onClose }) => {
             onClick={() =>
               signIn("google", {
                 callbackUrl: "/",
-                redirect: true,
+                redirect: false,
               })
             }
             variant="secondary"
