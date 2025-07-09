@@ -9,7 +9,6 @@ import { SearchInput } from "./search-input";
 import { CartButton } from "./cart-button";
 import toast from "react-hot-toast";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useSession } from "next-auth/react";
 import { AuthModal, ProfileButton } from "./index";
 
 interface Props {
@@ -46,7 +45,7 @@ export const Header: React.FC<Props> = ({
         });
       }, 1000);
     }
-  });
+  }, []);
 
   return (
     <header className={cn("border-b", className)}>

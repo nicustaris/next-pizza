@@ -52,7 +52,7 @@ export async function POST(req: NextRequest) {
     const data = (await req.json()) as CreateCartItemValues;
 
     // If item is found we update the quantity
-    // TODO: Sort out every meth. that doesn't work as expected
+    // TODO: Sort out every meth. which doesn't work as expected
     const findCartItem = await prisma.cartItem.findFirst({
       where: {
         cartId: userCart.id,

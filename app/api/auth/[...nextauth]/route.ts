@@ -48,14 +48,13 @@ export const authOptions = {
           credentials.password,
           findUser.password,
         );
-
         if (!isPasswordValid) {
           return null;
         }
 
-        if (!findUser.verified) {
-          return null;
-        }
+        // if (!findUser.verified) {
+        //   return null;
+        // }
 
         return {
           id: String(findUser.id),
@@ -85,7 +84,7 @@ export const authOptions = {
             OR: [
               {
                 provider: account?.provider,
-                providerId: account?.providerId as string,
+                providerId: account?.providerAccountId as string,
               },
               { email: user.email },
             ],
@@ -99,7 +98,7 @@ export const authOptions = {
             },
             data: {
               provider: account?.provider,
-              providerId: account?.providerId as string,
+              providerId: account?.providerAccountId as string,
             },
           });
 
@@ -119,7 +118,7 @@ export const authOptions = {
 
         return true;
       } catch (error) {
-        console.log("Error [SIGNIN], error");
+        console.log("[SIGNIN] Error", error);
         return false;
       }
     },

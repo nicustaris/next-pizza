@@ -27,6 +27,7 @@ export { ProfileButton } from "./profile-button";
 export { AuthModal } from "./modals/auth-modal";
 export { InfoBlock } from "./info-block";
 export { ProfileForm } from "./profile-form";
+export { Stories } from "./stories";
 
 export * from "./modals";
 export * from "./checkout";
