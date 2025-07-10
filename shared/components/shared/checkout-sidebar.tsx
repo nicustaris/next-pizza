@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import { currencyFormatter } from "@/shared/lib/formatters";
 import { ArrowRight, Package, Percent, Truck } from "lucide-react";

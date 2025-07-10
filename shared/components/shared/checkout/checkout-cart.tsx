@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import { WhiteBlock } from "../white-block";
 import { CheckoutItemSkeleton } from "../checkout-item-skeleton";

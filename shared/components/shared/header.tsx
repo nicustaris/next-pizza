@@ -29,13 +29,13 @@ export const Header: React.FC<Props> = ({
   React.useEffect(() => {
     let toastMessage = "";
 
-    if (searchParams.has("paid")) {
-      toastMessage = "The order has been successfully paid.";
-    }
+    // if (searchParams.has("paid")) {
+    //   toastMessage = "The order has been successfully paid.";
+    // }
 
-    if (searchParams.has("verified")) {
-      toastMessage = "The order has been successfully paid.";
-    }
+    // if (searchParams.has("verified")) {
+    //   toastMessage = "The order has been successfully paid.";
+    // }
 
     if (toastMessage) {
       setTimeout(() => {

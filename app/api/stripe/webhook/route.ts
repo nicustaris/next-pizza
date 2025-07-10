@@ -3,11 +3,9 @@ import { OrderConfirmationTemplate } from "@/shared/components";
 import { sendEmail } from "@/shared/lib/send-email";
 import { OrderStatus } from "@prisma/client";
 import { NextRequest, NextResponse } from "next/server";
-import { Resend } from "resend";
 import Stripe from "stripe";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string);
-const resend = new Resend(process.env.RESEND_API_KEY as string);
 
 export async function POST(req: NextRequest) {
   try {

@@ -1,6 +1,7 @@
 import { Header } from "@/shared/components/shared";
 import { Metadata } from "next";
 import { Container } from "@/shared/components/shared/container";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
   title: "Next Pizza || Checkout",
@@ -13,7 +14,13 @@ export default function CheckoutLayout({
   return (
     <main className="min-h-screen bg-[#F4F1EE]">
       <Container>
-        <Header hasSearch={false} hasCart={false} className="border-gray-200" />
+        <Suspense>
+          <Header
+            hasSearch={false}
+            hasCart={false}
+            className="border-gray-200"
+          />
+        </Suspense>
         {children}
       </Container>
     </main>

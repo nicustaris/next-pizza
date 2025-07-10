@@ -11,7 +11,6 @@ interface Props {
   params: Promise<{
     orderId: string;
   }>;
-  className?: string;
 }
 
 export default async function PaymentPage({ params }: Props) {

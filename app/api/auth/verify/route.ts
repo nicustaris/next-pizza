@@ -33,6 +33,6 @@ export async function GET(req: NextRequest) {
 
     return NextResponse.redirect(new URL("/?verified", req.url));
   } catch (error) {
-    console.log("Error [VERIFY_ROUTE]");
+    console.log("Error [VERIFY_ROUTE]", error);
   }
 }
